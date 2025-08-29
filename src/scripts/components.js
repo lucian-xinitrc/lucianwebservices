@@ -152,6 +152,7 @@ const PortfolioCard = ({title, type, photo, desc, name, loc}) => {
 			<Image
 		        src={photo}
 		        alt="Preview"
+		        className="rounded-lg"
 		        width={700}
 		        height={400}
 		      />
@@ -204,7 +205,7 @@ const Portfolio = () => {
 		      <PortfolioCard 
 		      	title="LBL Creations"
 		      	type="Website"
-		      	photo="/images/dncuk.webp" 
+		      	photo="/images/lbl.webp" 
 		      	desc="The website of our side partners on printing."
 		      	name="Go to LBL"
 		      	loc="https://lblcreations.vercel.app/"
@@ -213,7 +214,7 @@ const Portfolio = () => {
 		      <PortfolioCard 
 		      	title="Gethonis" 
 		      	type="API Service"
-		      	photo="/images/dncuk.webp" 
+		      	photo="/images/gethonis.webp" 
 		      	desc="Our Personal AI and multifunctional API"
 		      	name="Go to Gethonis"
 		      	loc="https://gethonis.com/"
