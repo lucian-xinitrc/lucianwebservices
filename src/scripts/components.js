@@ -82,16 +82,24 @@ const Contact = () => {
 	const [message, setMessage] = useState("");
 
 	const handleSubmit = async (e) => {
-		e.preventDefault();
-		const res = await fetch ("/api/submit",{
-			method: "POST",
-			headers: { "Content-type": "application/json"},
-			body: JSON.stringify({ email, subject, message }),
-		});
+	  e.preventDefault();
 
-		const data = await res.json();
-		alert(data.message);
-	}
+	  const now = new Date().toISOString();
+
+	  const res = await fetch("/api/submit", {
+	    method: "POST",
+	    headers: { "Content-Type": "application/json" },
+	    body: JSON.stringify({ 
+	      email, 
+	      subject, 
+	      message,
+	      created_at: now,
+	    }),
+	  });
+
+	  const data = await res.json();
+	  alert(data.message);
+	};
 	return (
 		<section id="contact" class="p-20 sm:p-20">
 		  <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md text-white">

@@ -9,14 +9,14 @@ const pool = new Pool({
 
 export async function POST(req) {
   try {
-    const { email, subject, message } = await req.json();
+    const { email, subject, message, created_at } = await req.json();
 
     const encEmail = encrypt(email);
     const encSubject = encrypt(subject);
     const encMessage = encrypt(message);
 
     const result = await pool.query(
-      "INSERT INTO public.clients (email, subject, message, iv_email, iv_subject, iv_message) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+      "INSERT INTO public.clients (email, subject, message, iv_email, iv_subject, iv_message, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
       [ 
         encEmail.encryptedData,
         encSubject.encryptedData,
@@ -24,6 +24,7 @@ export async function POST(req) {
         encEmail.iv,
         encSubject.iv,
         encMessage.iv,
+        created_at
       ]
     );
 
