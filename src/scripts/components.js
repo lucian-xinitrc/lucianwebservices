@@ -1,6 +1,7 @@
 'use client'
 import Image from "next/image";
 import { useState } from "react";
+import '../app/globals.css';
 
 const Header = () => {
 	return (
@@ -135,7 +136,7 @@ const Contact = () => {
 		          <div className="flex justify-center w-full">
 					<button 
                     type="submit"
-                    className="md:mx-5 sm:mx-3 rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-auto sm:w-2xl md:w-[158px]">Send</button>		      
+                    className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] hover:bg-white hover:text-black hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-auto sm:w-2xl md:w-[158px]">Send</button>		      
                   </div>
                     </form>
                   
@@ -144,24 +145,34 @@ const Contact = () => {
 	);
 }
 
-const PortfolioCard = ({title, photo, desc, name, loc}) => {
+const PortfolioCard = ({title, type, photo, desc, name, loc}) => {
 	return (
 		<div class="space-y-4 p-10">
+			<div className="justify-center content-center w-auto">
+			<Image
+		        src={photo}
+		        alt="Preview"
+		        width={700}
+		        height={400}
+		      />
+		    </div>
 			<span
 	          class="bg-gray-100 text-gray-900 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
-	          Website
+	          {type}
 	        </span>
 		    <h3 class="text-2xl font-bold leading-tight text-gray-900 dark:text-white">
 		        {title}
 		    </h3>
-		    <p class="text-lg font-normal text-gray-500 dark:text-gray-400">
+		    <p class="text-lg font-normal h-20 text-gray-500 dark:text-gray-400">
 		       {desc}
 		    </p>
-		    <a href="`${loc}`" title=""
-		        class="text-white bg-primary-700 justify-center hover:bg-primary-800 inline-flex items-center  focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-		        role="button">
-		        {name}
-		    </a>
+		    <div className="justify-center flex w-full ">
+			    <a href={loc} title=""
+			        class="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] hover:bg-white hover:text-black hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-auto sm:w-2xl md:w-[158px]"
+			        role="button">
+			        {name}
+			    </a>
+			</div>
 		</div>
 	);
 }
@@ -182,27 +193,30 @@ const Portfolio = () => {
 
 		    <div class="grid grid-cols-1 mt-12 text-center sm:mt-16 gap-x-20 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
 		      <PortfolioCard 
-		      	title="DNCUKAccounting" 
-		      	photo="photo" 
+		      	title="DNCUKAccounting"
+		      	type="Website" 
+		      	photo="/images/dncuk.webp" 
 		      	desc="Website of our Accounting Partner"
 		      	name="Go to DNCUK"
 		      	loc="https://dncukaccounting.org"
 		      />
 
 		      <PortfolioCard 
-		      	title="LBL Creations" 
-		      	photo="photo" 
+		      	title="LBL Creations"
+		      	type="Website"
+		      	photo="/images/dncuk.webp" 
 		      	desc="The website of our side partners on printing."
 		      	name="Go to LBL"
-		      	loc="https://dncukaccounting.org"
+		      	loc="https://lblcreations.vercel.app/"
 		      />
 
 		      <PortfolioCard 
 		      	title="Gethonis" 
-		      	photo="photo" 
+		      	type="API Service"
+		      	photo="/images/dncuk.webp" 
 		      	desc="Our Personal AI and multifunctional API"
 		      	name="Go to Gethonis"
-		      	loc="https://gethonis.org/"
+		      	loc="https://gethonis.com/"
 		      />
 		    </div>
 		  </div>

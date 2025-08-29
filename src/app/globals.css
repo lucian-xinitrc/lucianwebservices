@@ -32,3 +32,15 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: #111827 !important; /* schimbă text color */
   transition: background-color 5000s ease-in-out 0s; /* prevenire flicker */
 }
+
+@layer utilities {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+}
