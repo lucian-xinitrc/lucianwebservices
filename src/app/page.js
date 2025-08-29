@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { Header, Pricing, Services, About } from '../scripts/components.js';
+import { Header, Pricing, Services, Contact, Portfolio, Footer } from '../scripts/components.js';
 
 export default function Home() {
   return (
@@ -9,7 +9,9 @@ export default function Home() {
         <Header />
         <Services />
         <Pricing />
-        <About />
+        <Portfolio />
+        <Contact />
+        <Footer />
       </section>
     </>
   );

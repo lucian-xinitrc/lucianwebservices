@@ -1,4 +1,6 @@
+'use client'
 import Image from "next/image";
+import { useState } from "react";
 
 const Header = () => {
 	return (
@@ -74,32 +76,133 @@ const Services = () => {
 	)
 }
 
-const About = () => {
+const Contact = () => {
+	const [email, setEmail] = useState("");
+	const [subject, setSubject] = useState("");
+	const [message, setMessage] = useState("");
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		const res = await fetch ("/api/submit",{
+			method: "POST",
+			headers: { "Content-type": "application/json"},
+			body: JSON.stringify({ email, subject, message }),
+		});
+
+		const data = await res.json();
+		alert(data.message);
+	}
+	return (
+		<section id="contact" class="p-20 sm:p-20">
+		  <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md text-white">
+		      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-white dark:text-white">Contact Us</h2>
+		      <form onSubmit={handleSubmit} class="space-y-8" >
+		          <div>
+		              <input 
+		              	type="email" 
+		              	id="email"
+		              	name="email"
+		              	value={email}
+		              	onChange={(e) => setEmail(e.target.value)}
+		              	class="bg-transparent filled:bg-transparent text-white placeholder-text-white sm:text-white md:mx-5 sm:mx-3 rounded-full shadow-xl/30 focus:outline-none  transition-colors flex items-center justify-center hover:bg-[#070F2B] dark:hover:bg-[#070F2B] hover:text-white hover:border-transparent focus:outline-none font-medium text-sm sm:text-base hover:placeholder:text-gray-400 h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-full md:w-full focus:outline-none border border-solid border-black/[.08] dark:border-white/[.145]" placeholder="name@email.com" required />
+		          </div>
+		          <div>
+		              <input 
+		              	type="text" 
+		              	id="subject"
+		              	name="subject"
+		              	value={subject}
+		              	onChange={(e) => setSubject(e.target.value)}
+		              	class="bg-transparent text-white sm:text-white md:mx-5 sm:mx-3 rounded-full shadow-xl/30 focus:outline-none  transition-colors flex items-center justify-center hover:bg-[#070F2B] dark:hover:bg-[#070F2B] hover:text-white hover:border-transparent focus:outline-none font-medium text-sm sm:text-base hover:placeholder:text-gray-400 h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-full md:w-full border border-solid border-black/[.08] dark:border-white/[.145]" placeholder="Let us know how we can help you" requiredv />
+		          </div>
+		          <div class="sm:col-span-2">
+		              <textarea 
+		              	id="message" 
+		              	rows="6"
+		              	name="message"
+		              	value={message}
+		              	onChange={(e) => setMessage(e.target.value)}
+		              	class="bg-transparent text-white sm:text-white md:mx-5 sm:mx-3 rounded-lg shadow-xl/30 focus:outline-none  transition-colors flex items-center justify-center hover:bg-[#070F2B] dark:hover:bg-[#070F2B] hover:text-white hover:border-transparent focus:outline-none font-medium text-sm sm:text-base hover:placeholder:text-gray-400 h-20 sm:h-20 sm:h-12 px-4 sm:px-5 w-full sm:w-full md:w-full p-5 no-scrollbar border border-solid border-black/[.08] dark:border-white/[.145]" placeholder="Leave a comment..."></textarea>
+		          </div>
+					<button 
+                    type="submit"
+                    className="md:mx-5 sm:mx-3 rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-auto sm:w-2xl md:w-[158px]">Send</button>		      
+                    </form>
+		  </div>
+		</section>
+	);
+}
+
+const PortfolioCard = ({title, photo, desc, name, loc}) => {
+	return (
+		<div class="space-y-4 p-10">
+			<span
+	          class="bg-gray-100 text-gray-900 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
+	          Website
+	        </span>
+		    <h3 class="text-2xl font-bold leading-tight text-gray-900 dark:text-white">
+		        {title}
+		    </h3>
+		    <p class="text-lg font-normal text-gray-500 dark:text-gray-400">
+		       {desc}
+		    </p>
+		    <a href="`${loc}`" title=""
+		        class="text-white bg-primary-700 justify-center hover:bg-primary-800 inline-flex items-center  focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+		        role="button">
+		        {name}
+		    </a>
+		</div>
+	);
+}
+
+const Portfolio = () => {
 	return (
 		<>
-			<div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6 lg:h-screen sm:h-auto">
-	          <div className="mt-4 md:mt-0">
-	          	  <Image
-				      src="/about.png"
-				      width={500}
-				      height={500}
-				      alt="Picture of the author"
-				      class="w-full dark:hidden"
-				    />
-	              <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">About Me</h2>
-	              <p className="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">I am a Professional Web Developer that </p>
-	              <a href="#" className="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
-	                  Get started
-	              </a>
-	          </div>
-	        </div>
+		<section class="bg-white dark:bg-gray-900 antialiased">
+		  <div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24">
+		    <div class="max-w-2xl mx-auto text-center">
+		      <h2 class="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+		        Our work
+		      </h2>
+		      <p class="mt-4 text-base font-normal text-gray-500 sm:text-xl dark:text-gray-400">
+		        Crafted with skill and care to help our clients grow their business!
+		      </p>
+		    </div>
+
+		    <div class="grid grid-cols-1 mt-12 text-center sm:mt-16 gap-x-20 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+		      <PortfolioCard 
+		      	title="DNCUKAccounting" 
+		      	photo="photo" 
+		      	desc="Website of our Accounting Partner"
+		      	name="Go to DNCUK"
+		      	loc="https://dncukaccounting.org"
+		      />
+
+		      <PortfolioCard 
+		      	title="LBL Creations" 
+		      	photo="photo" 
+		      	desc="The website of our side partners on printing."
+		      	name="Go to LBL"
+		      	loc="https://dncukaccounting.org"
+		      />
+
+		      <PortfolioCard 
+		      	title="Gethonis" 
+		      	photo="photo" 
+		      	desc="Our Personal AI and multifunctional API"
+		      	name="Go to Gethonis"
+		      	loc="https://gethonis.org/"
+		      />
+		    </div>
+		  </div>
+		</section>
 		</>
-	)
+	);
 }
 
 const Cards = ({ title, paraf, price, list }) => {
 	return (
-		<div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+		<div className="focus:outline-none border border-solid border-black/[.08] dark:border-white/[.145] flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 rounded-none border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:text-white transition duration-700 ease-in-out hover:shadow-xl/30 hover:shadow-gray-400">
 		    <h3 className="mb-4 text-2xl font-semibold">{title}</h3>
 		        <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">{paraf}</p>
 		        <div className="flex justify-center items-baseline my-8">
@@ -109,7 +212,7 @@ const Cards = ({ title, paraf, price, list }) => {
 				<ul role="list" className="mb-8 space-y-4 text-left">
 					{
 						list.map(list => (
-								<li className="flex items-center space-x-3">
+						   		<li className="flex items-center space-x-3">
 					                <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
 					                <span>{list}</span>
 					            </li>
@@ -145,7 +248,7 @@ const Pricing = () => {
 		          	]} 
 		          />
 		          <Cards 
-		          	title="Starter"
+		          	title="Medium"
 		          	paraf="Best option for personal use & for your next project."
 		          	price="$20"
 		          	list={[
@@ -157,7 +260,7 @@ const Pricing = () => {
 		          	]} 
 		          />
 		          <Cards 
-		          	title="Starter"
+		          	title="Advanced"
 		          	paraf="Best option for personal use & for your next project."
 		          	price="$30"
 		          	list={[
@@ -175,4 +278,43 @@ const Pricing = () => {
 	)
 }
 
-export { Header, Pricing, Services, About };
+const Footer = () => {
+	return (
+		<>
+			<footer class=" p-10 shadow-xl/20">
+			    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+			        <div class="md:flex md:justify-between">
+			          <div class="mb-6 md:mb-0">
+			              <a href="https://flowbite.com/" class="flex items-center"> 
+			                  <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Lucian Web Services</span>
+			              </a>
+			          </div>
+			          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+			              <div>
+			                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow me</h2>
+			                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
+			                      <li class="mb-4">
+			                          <a href="https://www.instagram.com/lucian__.__f/" class="hover:underline ">Instagram</a>
+			                      </li>
+			                      <li class="mb-4">
+			                          <a href="https://github.com/lucian-xinitrc" class="hover:underline ">Github</a>
+			                      </li>
+			                      
+			                  </ul>
+			              </div>
+			              
+			          </div>
+			      </div>
+			      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+			      <div class="sm:flex sm:items-center sm:justify-center">
+			          <span class="text-sm text-center text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="https://flowbite.com/" class="hover:underline">LBL Creations™</a>. All Rights Reserved.
+			          </span>
+			          
+			      </div>
+			    </div>
+			</footer>
+		</>
+	);
+}
+
+export { Header, Pricing, Services, Contact, Portfolio, Footer };
