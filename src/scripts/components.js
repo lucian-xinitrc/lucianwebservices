@@ -101,7 +101,7 @@ const Contact = () => {
 	  alert(data.message);
 	};
 	return (
-		<section id="contact" class="p-20 sm:p-20">
+		<section id="contact" class="px-5 py-20 sm:p-20">
 		  <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md text-white">
 		      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-white dark:text-white">Contact Us</h2>
 		      <form onSubmit={handleSubmit} class="space-y-8" >
@@ -132,10 +132,13 @@ const Contact = () => {
 		              	onChange={(e) => setMessage(e.target.value)}
 		              	class="bg-transparent text-white sm:text-white md:mx-5 sm:mx-3 rounded-lg shadow-xl/30 focus:outline-none  transition-colors flex items-center justify-center hover:bg-[#070F2B] dark:hover:bg-[#070F2B] hover:text-white hover:border-transparent focus:outline-none font-medium text-sm sm:text-base hover:placeholder:text-gray-400 h-20 sm:h-20 sm:h-12 px-4 sm:px-5 w-full sm:w-full md:w-full p-5 no-scrollbar border border-solid border-black/[.08] dark:border-white/[.145]" placeholder="Leave a comment..."></textarea>
 		          </div>
+		          <div className="flex justify-center w-full">
 					<button 
                     type="submit"
                     className="md:mx-5 sm:mx-3 rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-auto sm:w-2xl md:w-[158px]">Send</button>		      
+                  </div>
                     </form>
+                  
 		  </div>
 		</section>
 	);
@@ -166,7 +169,7 @@ const PortfolioCard = ({title, photo, desc, name, loc}) => {
 const Portfolio = () => {
 	return (
 		<>
-		<section class="bg-white dark:bg-gray-900 antialiased">
+		<section class="bg-gray-900 antialiased shadow-xl/30">
 		  <div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24">
 		    <div class="max-w-2xl mx-auto text-center">
 		      <h2 class="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl dark:text-white">
