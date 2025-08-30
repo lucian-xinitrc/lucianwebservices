@@ -104,7 +104,10 @@ const Contact = () => {
 	return (
 		<section id="contact" class="px-5 py-20 sm:p-20">
 		  <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md text-white">
-		      <h2 className="mb-4 text-4xl text-black tracking-tight font-extrabold text-center dark:text-white">Contact Us</h2>
+		      <h2 className="mb-4 text-4xl text-black pt-10 pb-0 tracking-tight font-extrabold text-center dark:text-white">Contact Us</h2>
+		      <div className="w-full flex justify-center">
+		      	<p className="text-xs w-[300px] text-black pb-10 text-center text-gray-700">Use this form to ask me anything, you can also order a website by putting Subscription type in Subject</p>
+		      </div>
 		      <form onSubmit={handleSubmit} class="space-y-8" >
 		          <div>
 		              <input 
@@ -113,7 +116,7 @@ const Contact = () => {
 		              	name="email"
 		              	value={email}
 		              	onChange={(e) => setEmail(e.target.value)}
-		              	className="bg-transparent placeholder:text-gray-400 filled:bg-transparent dark:sm:text-white sm:text-gray-800 dark:text-white dark:placeholder-text-white md:mx-5 sm:mx-3 rounded-full focus:outline-none  transition-colors flex items-center justify-center transition duration-700 ease-in-out hover:bg-gray-100 dark:hover:bg-[#070F2B] dark:hover:text-white hover:border-transparent focus:outline-none font-medium text-sm sm:text-base  h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-full md:w-full focus:outline-none border border-solid border-black/[.08] dark:border-white/[.145] dark:focus:text-white focus:text-black active:text-black" placeholder="name@email.com" required />
+		              	className="bg-transparent placeholder:text-gray-400 filled:bg-transparent dark:sm:text-white sm:text-gray-800 dark:text-white dark:placeholder-text-white md:mx-5 sm:mx-3 rounded-lg focus:outline-none  flex items-center justify-center transition duration-700 ease-in-out hover:bg-gray-100 dark:hover:bg-[#070F2B] dark:hover:text-white hover:border-transparent focus:outline-none font-medium text-sm sm:text-base  h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-full md:w-full focus:outline-none border border-solid border-black/[.03] shadow-xl/10 dark:border-white/[.145] dark:focus:text-white focus:text-black active:text-black text-black" placeholder="name@email.com" required />
 		          </div>
 		          <div>
 		              <input 
@@ -122,7 +125,7 @@ const Contact = () => {
 		              	name="subject"
 		              	value={subject}
 		              	onChange={(e) => setSubject(e.target.value)}
-		              	className="bg-transparent placeholder:text-gray-400 dark:sm:text-white sm:text-gray-800 sm:hover:text-black md:mx-5 sm:mx-3 rounded-full focus:outline-none  transition-colors flex items-center justify-center hover:bg-gray-100 transition duration-700 ease-in-out dark:hover:bg-[#070F2B] hover:text-white hover:border-transparent focus:outline-none font-medium text-sm sm:text-base hover:placeholder:text-gray-400 h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-full md:w-full border border-solid border-black/[.08] dark:border-white/[.145] dark:focus:text-white focus:text-black active:text-black" placeholder="Let us know how we can help you" requiredv />
+		              	className="bg-transparent placeholder:text-gray-400 dark:sm:text-white sm:text-gray-800 sm:hover:text-black md:mx-5 sm:mx-3 rounded-lg focus:outline-none  transition-colors flex items-center justify-center hover:bg-gray-100 transition duration-700 ease-in-out dark:hover:bg-[#070F2B] hover:text-white hover:border-transparent focus:outline-none font-medium text-sm sm:text-base hover:placeholder:text-gray-400 h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-full md:w-full border border-solid border-black/[.03] shadow-xl/10 dark:border-white/[.145] dark:focus:text-white focus:text-black active:text-black text-black" placeholder="Let us know how we can help you" requiredv />
 		          </div>
 		          <div className="sm:col-span-2">
 		              <textarea 
@@ -131,12 +134,12 @@ const Contact = () => {
 		              	name="message"
 		              	value={message}
 		              	onChange={(e) => setMessage(e.target.value)}
-		              	className="bg-transparent placeholder:text-gray-400 dark:sm:text-white sm:text-gray-800 sm:hover:text-black md:mx-5 sm:mx-3 rounded-lg focus:outline-none  transition-colors flex items-center justify-center transition duration-700 ease-in-out dark:hover:bg-[#070F2B] hover:bg-gray-100 hover:text-white hover:border-transparent focus:outline-none font-medium text-sm sm:text-base hover:placeholder:text-gray-400 h-20 sm:h-20 sm:h-12 px-4 sm:px-5 w-full sm:w-full md:w-full p-5 no-scrollbar border border-solid border-black/[.08] dark:border-white/[.145] dark:focus:text-white focus:text-black active:text-black" placeholder="Leave a comment..."></textarea>
+		              	className="bg-transparent placeholder:text-gray-400 dark:sm:text-white sm:text-gray-800 sm:hover:text-black md:mx-5 sm:mx-3 rounded-lg focus:outline-none  transition-colors flex items-center justify-center transition duration-700 ease-in-out dark:hover:bg-[#070F2B] hover:bg-gray-100 hover:text-white hover:border-transparent focus:outline-none font-medium text-sm sm:text-base hover:placeholder:text-gray-400 h-20 sm:h-20 sm:h-12 px-4 sm:px-5 w-full sm:w-full md:w-full p-5 no-scrollbar border border-solid border-black/[.03] shadow-xl/10 dark:border-white/[.145] dark:focus:text-white focus:text-black active:text-black sm: active:text-black text-black dark:text-white" placeholder="Leave a comment..."></textarea>
 		          </div>
 		          <div className="flex justify-center w-full">
 					<button 
                     type="submit"
-                    className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center text-black dark:text-white transition duration-700 ease-in-out hover:bg-gray-800 hover:text-white dark:hover:bg-[#f2f2f2] dark:hover:text-black hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-auto sm:w-2xl md:w-[158px]">Send</button>		      
+                    className="rounded-full border border-solid border-black/[.03] shadow-xl/10 px-10 dark:border-white/[.145] transition-colors flex items-center justify-center text-black dark:text-white transition duration-700 ease-in-out hover:bg-gray-800 hover:text-white dark:hover:bg-[#f2f2f2] dark:hover:text-black hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-auto sm:w-2xl md:w-[158px]">Send</button>		      
                   </div>
                     </form>
                   
