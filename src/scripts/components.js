@@ -125,7 +125,7 @@ const Contact = () => {
 		              	name="subject"
 		              	value={subject}
 		              	onChange={(e) => setSubject(e.target.value)}
-		              	className="bg-transparent placeholder:text-gray-400 dark:sm:text-white sm:text-gray-800 sm:hover:text-black md:mx-5 sm:mx-3 rounded-lg focus:outline-none  transition-colors flex items-center justify-center hover:bg-gray-100 transition duration-700 ease-in-out dark:hover:bg-[#070F2B] hover:text-white hover:border-transparent focus:outline-none font-medium text-sm sm:text-base hover:placeholder:text-gray-400 h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-full md:w-full border border-solid border-black/[.03] shadow-xl/10 dark:border-white/[.145] dark:focus:text-white focus:text-black active:text-black text-black" placeholder="Let us know how we can help you" requiredv />
+		              	className="bg-transparent placeholder:text-gray-400 dark:sm:text-white sm:text-gray-800 sm:hover:text-black md:mx-5 sm:mx-3 rounded-lg focus:outline-none  transition-colors flex items-center justify-center hover:bg-gray-100 transition duration-700 ease-in-out dark:hover:bg-[#070F2B] hover:text-white hover:border-transparent focus:outline-none font-medium text-sm sm:text-base hover:placeholder:text-gray-400 h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-full md:w-full border border-solid border-black/[.03] shadow-xl/10 dark:border-white/[.145] dark:focus:text-white focus:text-black active:text-black text-black dark:text-white" placeholder="Let us know how we can help you" requiredv />
 		          </div>
 		          <div className="sm:col-span-2">
 		              <textarea 
@@ -289,7 +289,7 @@ const Pricing = () => {
 		          <Cards 
 		          	title="Advanced"
 		          	paraf="Best option for personal use & for your next project."
-		          	price="$30"
+		          	price="$50"
 		          	list={[
 		          		'24/7 Maintenance',
 		          		'5 websites',
