@@ -209,7 +209,7 @@ const Portfolio = () => {
 		      	photo="/images/lbl.webp" 
 		      	desc="The website of our side partners on printing."
 		      	name="Go to LBL"
-		      	loc="https://lblcreations.vercel.app/"
+		      	loc="https://lbl.mebhevy.com/"
 		      />
 
 		      <PortfolioCard 
