@@ -6,15 +6,12 @@ import '../app/globals.css';
 const Header = () => {
 	return (
 		<>
-			<div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 h-screen">
-	            <div className="mr-auto place-self-center lg:col-span-7 ">
-	                <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl sm:text-8xl dark:text-white">Lucian Web Services</h1>
-	                <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Lets design the web together</p>
+			<div className="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:grid-cols-12 h-screen content-center">
+	            <div className="place-self-center">
+	                <h1 className="text-center max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl sm:text-8xl dark:text-white">LucianWS Digital</h1>
+	                <p className="text-center max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Lets design the web together</p>
 	                
-	            </div>
-	            <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-	                
-	            </div>                
+	            </div>              
         	</div>
 		</>
 	)
@@ -172,7 +169,7 @@ const PortfolioCard = ({title, type, photo, desc, name, loc}) => {
 		    </p>
 		    <div className="justify-center flex w-full ">
 			    <a href={loc} title=""
-			        class="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center transition duration-700 ease-in-out hover:bg-gray-800 hover:text-white dark:hover:bg-white hover:text-black hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-auto sm:w-2xl md:w-[158px]"
+			        class="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center transition duration-700 ease-in-out hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-black hover:text-black hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-auto sm:w-2xl md:w-[158px]"
 			        role="button">
 			        {name}
 			    </a>
@@ -184,7 +181,7 @@ const PortfolioCard = ({title, type, photo, desc, name, loc}) => {
 const Portfolio = () => {
 	return (
 		<>
-		<section className="dark:bg-gray-900 antialiased my-30 shadow-xl/10 mx-5 h-autorounded-lg sm:mx-10 mt-70">
+		<section className="dark:bg-gray-900 antialiased my-30 shadow-xl/20 mx-5 h-auto rounded-[10px] sm:mx-10 mt-70">
 		  <div className="w-full px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24 ">
 		    <div className="max-w-2xl mx-auto text-center">
 		      <h2 className="mb-4 text-4xl text-black tracking-tight font-extrabold text-center dark:text-white">Projects</h2>
@@ -264,7 +261,7 @@ const Pricing = () => {
 
 		          <Cards 
 		          	title="Starter"
-		          	paraf="Best option for personal use & for your next project."
+		          	paraf="Best option for simple landing pages for individuals"
 		          	price="$10"
 		          	list={[
 		          		'24/7 Maintenance',
@@ -276,7 +273,7 @@ const Pricing = () => {
 		          />
 		          <Cards 
 		          	title="Medium"
-		          	paraf="Best option for personal use & for your next project."
+		          	paraf="Recommended plan for projects that require database"
 		          	price="$20"
 		          	list={[
 		          		'24/7 Maintenance',
@@ -288,7 +285,7 @@ const Pricing = () => {
 		          />
 		          <Cards 
 		          	title="Advanced"
-		          	paraf="Best option for personal use & for your next project."
+		          	paraf="Best option for large scale projects and APIs"
 		          	price="$50"
 		          	list={[
 		          		'24/7 Maintenance',
