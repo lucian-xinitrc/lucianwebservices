@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Lucian Web Services",
+  title: "Lucian WS Digital",
   description: "Created by Mebhevy Services",
   keywords: ['Next.js', 'SEO', 'Thumbnail', 'Tutorial'],
   authors: [{ name: 'Lucian-Florin' }],
@@ -20,7 +20,7 @@ export const metadata = {
 
   // Open Graph (Facebook, WhatsApp, LinkedIn)
   openGraph: {
-    title: "Lucian Web Services",
+    title: "Lucian WS Digital",
     description: "Created by Mebhevy Services",
     url: 'https://lucianws.com',
     siteName: 'LucianWS',
@@ -39,7 +39,7 @@ export const metadata = {
   // Twitter Cards
   twitter: {
     card: '/images/thumbnail.png',
-    title: 'Lucian Web Services',
+    title: 'Lucian WS Digital',
     description: 'Lets built the web together',
     images: ['/images/thumbnail.png'],
     site: 'https://lucianws.com',
