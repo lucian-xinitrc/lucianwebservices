@@ -81,10 +81,8 @@ export default function Home() {
 									        <ul class="space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400 w-auto">
 										        {item.listdetails.map((i, key) => (
 										        		<li key={key} class="flex items-center space-x-3 rtl:space-x-reverse">
-												         <svg class="shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-												            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-												         </svg>
-												        <span>{i}</span>
+												         
+												        <span class="bg-blue-100 text-blue-800 text-md font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">{i}</span>
 												        </li>
 										        	))}
 												</ul>
