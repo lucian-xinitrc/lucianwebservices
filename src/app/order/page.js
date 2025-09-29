@@ -82,7 +82,7 @@ export default function Home() {
 										        {item.listdetails.map((i, key) => (
 										        		<li key={key} class="flex items-center space-x-3 rtl:space-x-reverse">
 												         
-												        <span class="bg-blue-100 text-blue-800 text-md font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">{i}</span>
+												        <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">{i}</span>
 												        </li>
 										        	))}
 												</ul>
