@@ -26,7 +26,8 @@ export async function POST(req) {
 		  		sdescription: row.solvingDescription,
 		  		status: row.status,
 		  		solvedate: row.solvedDate,
-		  		startdate: row.startDate
+		  		startdate: row.startDate,
+		  		listdetails: row.listdetails.split(",")
 		  	}));
 		  	return NextResponse.json(resrows);
 		} else {

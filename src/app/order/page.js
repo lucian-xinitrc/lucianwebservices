@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faUtensils, faDumbbell, faRefresh, faArrowLeft, faUserCircle, faPaperPlane, faHourglassHalf} from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faUtensils, faDumbbell, faRefresh, faArrowLeft, faUserCircle, faPaperPlane, faHourglassHalf, faCheck} from '@fortawesome/free-solid-svg-icons'
 
 export default function Home() {
 	const [reference, setReference] = useState("");
@@ -29,8 +29,8 @@ export default function Home() {
 	}
 	return (
 		<> 
-		<section className="bg-slate-950 w-screen h-screen content-center">
-			<div className="flex justify-center">
+		<section className="bg-slate-950 w-auto h-screen content-center no-scrollbar">
+			<div className="flex justify-center no-scrollbar">
 					{!logged ? (
 							<div className="w-xs mx-10">
 
@@ -55,20 +55,50 @@ export default function Home() {
 		        			</div>
 					) : (
 
-						<div className="w-full p-5 content-center sm:p-40 h-screen">
+						<div className="w-full p-5 content-center sm:p-10 md:h-auto">
 							<div className="bg-slate-950 p-5 sm:p-20 h-auto shadow-xl/10 rounded-lg">
 								
 									{data.map((item, index) => (
 										<div>
-								        <div className="sm:grid sm:grid-cols-3 sm:flex justify-center" key={index}>
-								          <h1 className="font-bold text-center py-5 text-4xl">{item.title}</h1>
-								          <h1 className="font-bold text-center mt-5"> <FontAwesomeIcon icon={faHourglassHalf} className="text-4xl text-green-400" />{item.status}</h1>
+								        <div className=":grid sm:grid-cols-3 sm:flex justify-center gap 10" key={index}>
+								        <div className="block p-10">
+								          <h1 className="font-bold text-center text-4xl ">{item.title}</h1>
+								          	<div className="flex justify-center">
+								          		<span class="bg-blue-100 text-blue-800 text-md font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">{new Date(item.startdate).toISOString().split('T')[0]}</span>
+								          		<span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-yellow-900 dark:text-yellow-300">{item.solvedate != null ? (new Date(item.solvedate).toISOString().split('T')[0]) : ("")}</span>
+								        	</div>
+
+								        </div>
+
+								        <div className="block p-10">
+
+								          {item.status !== "Finished" ? (<h1 className="font-bold text-center mt-5"> <FontAwesomeIcon icon={faHourglassHalf} className="text-4xl text-gold-900" />{item.status}</h1>) : (<h1 className="font-bold text-center mt-5"> <FontAwesomeIcon icon={faCheck} className="text-4xl text-green-400" />{item.status}</h1>)}
 								          
+								          </div>
 								        </div>
-								        <div className="mt-10 sm:mt-30 sm:grid sm:grid-cols-2 flex justify-center" key={index}>
-								          <textarea className="h-auto dark:bg-gray-900 mt-0 mb-5 p-5 rounded-lg shadow-xl/10 dark:shadow-xl/10 font-normal text-gray-700 dark:text-gray-400 w-full sm:no-scrollbar focus:outline-none no-scrollbar" disabled>{item.idescription}</textarea>
-								          <h1 className="font-bold text-center">{item.sdescription}</h1>
-								        </div>
+								        <div className="md:flex md:justify-center">
+								        <div className="w-full flex justify-center py-5">
+									        <ul class="space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400 w-auto">
+										        {item.listdetails.map((i, key) => (
+										        		<li key={key} class="flex items-center space-x-3 rtl:space-x-reverse">
+												         <svg class="shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+												            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+												         </svg>
+												        <span>{i}</span>
+												        </li>
+										        	))}
+												</ul>
+											</div>
+									        <div className="mt-5 sm:mt-0 w-full flex justify-center" key={index}>
+									          <textarea className="h-auto w-full dark:bg-gray-900 mt-0 p-5 rounded-lg shadow-xl/10 dark:shadow-xl/10 font-normal text-gray-700 dark:text-gray-400 w-full sm:no-scrollbar focus:outline-none no-scrollbar" disabled>{item.idescription}</textarea>
+									        </div>
+
+
+									        
+										</div>
+										<div className="mt-5 sm:mt-5 w-full flex justify-center" key={index}>
+									          <textarea className="h-auto w-full dark:bg-gray-900 mt-0 p-5 rounded-lg shadow-xl/10 dark:shadow-xl/10 font-normal text-gray-700 dark:text-gray-400 w-full sm:no-scrollbar focus:outline-none no-scrollbar" disabled>{item.sdescription}</textarea>
+									        </div>
 								       	</div>
 							      ))}
 								
