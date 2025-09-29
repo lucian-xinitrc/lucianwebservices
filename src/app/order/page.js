@@ -65,7 +65,7 @@ export default function Home() {
 								          <h1 className="font-bold text-center text-4xl ">{item.title}</h1>
 								          	<div className="flex justify-center">
 								          		<span class="bg-blue-100 text-blue-800 text-md font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">{new Date(item.startdate).toISOString().split('T')[0]}</span>
-								          		<span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-yellow-900 dark:text-yellow-300">{item.solvedate != null ? (new Date(item.solvedate).toISOString().split('T')[0]) : ("")}</span>
+								          		<span class="bg-yellow-100 text-yellow-800 text-md font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-yellow-900 dark:text-yellow-300">{item.solvedate != null ? (new Date(item.solvedate).toISOString().split('T')[0]) : ("")}</span>
 								        	</div>
 
 								        </div>
