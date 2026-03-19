@@ -20,7 +20,7 @@ const Header = () => {
 const Services = () => {
 	return (
 		<>
-			<div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 lg:h-screen sm:h-auto mx-20">
+			<div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 sm:h-screen lg:h-screen sm:h-auto mx-20">
 		      <div className=" mb-8 lg:mb-16 w-full">
 		          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white text-center">Designed for powerful startups</h2>
 		          <p className="text-gray-500 sm:text-xl dark:text-gray-400 text-center">Quality is the first planned</p>
@@ -145,29 +145,41 @@ const Contact = () => {
 	);
 }
 
-const PortfolioCard = ({title, type, photo, desc, name, loc}) => {
+const sPortfolioCard = ({title, type, photo, desc, name, loc}) => {
 	return (
-		<div className="space-y-4 p-5">
-			<div className="flex justify-center">
-			<Image
-		        src={photo}
-		        alt="Preview"
-		        className="rounded-lg shadow-xl/20 sm:h-70 sm:w-200 md:h-40 lg:h-70"
-		        width={800}
-		        height={300}
-		      />
+		<div className="space-y-4 p-5 border border-solid border-white/[.10] h-auto rounded-lg">
+			<div className="flex justify-center ">
+			<div className="w-full content-center overflow-scroll w-100 h-50 no-scrollbar">
+				<Image
+			        src={photo}
+			        alt="Preview"
+			        loading="eager"
+			        className="shadow-xl/20 w-auto h-auto sm:w-full sm:h-full rounded-lg"
+			        width={1000}
+			        height={2000}
+			      />
+			</div>
 		  </div>
-			<span
+		  <div className="h-50 overflow:hidden my-10">
+				<span
 	          className="bg-gray-100 text-gray-900 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
 	          {type}
 	        </span>
-		    <h3 className="text-2xl font-bold leading-tight text-gray-900 dark:text-white">
+		    <h3 className="text-2xl font-bold my-10 leading-tight text-white dark:text-white">
 		        {title}
 		    </h3>
-		    <p className="text-lg font-normal h-auto text-gray-500 dark:text-gray-400">
+		    <p className="text-lg font-normal h-auto text-white dark:text-gray-400">
 		       {desc}
 		    </p>
-		    <div className="justify-center flex w-full ">
+		   </div>
+		    <div className="flex-1 justify-center flex w-full ">
+			    <a href={loc} title=""
+			        className="rounded-full flex-1 border border-solid border-white/[.12] transition-colors flex items-center justify-center transition duration-700 ease-in-out hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-black hover:text-black hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-auto sm:w-2xl md:w-[158px] text-white"
+			        role="button">
+			        {name}
+			    </a>
+			</div>
+			<div className="justify-center flex w-full ">
 			    <a href={loc} title=""
 			        class="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center transition duration-700 ease-in-out hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-black hover:text-black hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-auto sm:w-2xl md:w-[158px]"
 			        role="button">
@@ -181,16 +193,41 @@ const PortfolioCard = ({title, type, photo, desc, name, loc}) => {
 const Portfolio = () => {
 	return (
 		<>
-		<section className="dark:bg-gray-900 antialiased my-30 shadow-xl/20 mx-5 h-auto rounded-[10px] sm:mx-10 mt-70">
+		<section id="portfolio" className="bg-gray-900 antialiased my-30 shadow-xl/20 mx-5 h-auto rounded-[10px] sm:mx-10 mt-70">
 		  <div className="w-full px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24 ">
 		    <div className="max-w-2xl mx-auto text-center">
-		      <h2 className="mb-4 text-4xl text-black tracking-tight font-extrabold text-center dark:text-white">Projects</h2>
+		      <h2 className="mb-4 text-4xl text-white tracking-tight font-extrabold text-center dark:text-white">Projects</h2>
 		      <p className="mt-4 text-base font-normal text-gray-500 sm:text-xl dark:text-gray-400">
 		        Crafted with skill and care to help our clients grow their business!
 		      </p>
 		    </div>
 
-		    <div class="grid grid-cols-1 mt-12 mx-5 sm:mx-20 text-center sm:mt-16 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+		    <div className="grid grid-cols-1 mt-12 mx-5 sm:mx-20 text-center sm:mt-16 gap-x-10 gap-y-12 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+
+		      <PortfolioCard 
+		      	title="Gethonis" 
+		      	type="API Service"
+		      	photo="/images/gethonis.png" 
+		      	desc="Our Personal AI and multifunctional API"
+		      	name="Go to Gethonis"
+		      	loc="https://gethonis.com/"
+		      />
+		      <PortfolioCard 
+		      	title="Remote Print Service" 
+		      	type="Web App IoT Service"
+		      	photo="/images/remoteprinters.png"
+		      	desc="Remote Print Service"
+		      	name="Github"
+		      	loc="https://github.com/lucian-xinitrc/RemotePrintService"
+		      />
+
+		      <PortfolioCard 
+		      	title="Arch0" 
+		      	type="Discord ChatBot Assistant"
+		      	photo="/images/arch0TestScreenshot.png" 
+		      	desc="Arch0"
+		      	name="Contact me for code access"
+		      />
 		      <PortfolioCard 
 		      	title="DNCUKAccounting"
 		      	type="Website" 
@@ -208,19 +245,46 @@ const Portfolio = () => {
 		      	name="Go to LBL"
 		      	loc="https://lbl.mebhevy.com/"
 		      />
-
-		      <PortfolioCard 
-		      	title="Gethonis" 
-		      	type="API Service"
-		      	photo="/images/gethonis.webp" 
-		      	desc="Our Personal AI and multifunctional API"
-		      	name="Go to Gethonis"
-		      	loc="https://gethonis.com/"
-		      />
 		    </div>
 		  </div>
 		</section>
 		</>
+	);
+}
+
+
+
+const PortfolioCard = ({title, type, photo, desc, name, loc}) => {
+	return (
+		<div className="space-y-4 p-5">
+			<div className="w-full content-center overflow-scroll w-100 h-50 no-scrollbar rounded-lg" style={{
+            backgroundImage: `url(${photo})`,
+            objectFit: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+          }}>
+				
+			</div>
+			<div className="h-50 overflow:hidden my-10">
+				<span
+	          className="bg-gray-100 text-gray-900 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
+	          {type}
+	        </span>
+		    <h3 className="text-2xl font-bold my-10 leading-tight text-white dark:text-white">
+		        {title}
+		    </h3>
+		    <p className="text-lg font-normal h-auto text-white dark:text-gray-400">
+		       {desc}
+		    </p>
+		   </div>
+		    <div className="flex-1 justify-center flex w-full ">
+			    <a href={loc} title=""
+			        className="rounded-full flex-1 border border-solid border-white/[.12] transition-colors flex items-center justify-center transition duration-700 ease-in-out hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-black hover:text-black hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-auto sm:w-2xl md:w-[158px] text-white"
+			        role="button">
+			        {name}
+			    </a>
+			</div>
+		</div>
 	);
 }
 
@@ -252,7 +316,7 @@ const Cards = ({ title, paraf, price, list }) => {
 const Pricing = () => {
 	return (
 		<>
-			<div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 lg:h-screen sm:h-auto">
+			<div className="block py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
 		      <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12 p-10 mt-50">
 		          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Hosting Plans</h2>
 		          <p className="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">Empower your website's performance with our one of our accesible hosting plans.</p>
@@ -266,7 +330,6 @@ const Pricing = () => {
 		          	list={[
 		          		'24/7 Maintenance',
 		          		'1 website',
-		          		'No setup, or hidden fees',
 		          		'Limited Premium support: Monday - Friday 9:00 - 17:00',
 		          		'3 Free updates' 
 		          	]} 
@@ -318,7 +381,7 @@ const Footer = () => {
 			                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow me</h2>
 			                  <ul className="text-gray-500 dark:text-gray-400 font-medium">
 			                      <li className="mb-4">
-			                          <a href="https://www.instagram.com/lucian__.__f/" class="hover:underline ">Instagram</a>
+			                          <a href="https://www.linkedin.com/in/lucian-florin-cusmir/" class="hover:underline ">LinkedIn</a>
 			                      </li>
 			                      <li className="mb-4">
 			                          <a href="https://github.com/lucian-xinitrc" class="hover:underline ">Github</a>
@@ -331,7 +394,7 @@ const Footer = () => {
 			      </div>
 			      <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
 			      <div className="sm:flex sm:items-center sm:justify-center">
-			          <span className="text-sm text-center text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="https://flowbite.com/" class="hover:underline">Mebhevy™</a>. All Rights Reserved.
+			          <span className="text-sm text-center text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="https://flowbite.com/" class="hover:underline">Lucian</a>. All Rights Reserved.
 			          </span>
 			          
 			      </div>

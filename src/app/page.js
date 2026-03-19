@@ -5,7 +5,7 @@ import { Header, Pricing, Services, Contact, Portfolio, Footer } from '../script
 export default function Home() {
   return (
     <>
-      <section className="bg-white dark:bg-slate-950 h-auto">
+      <section className="bg-white dark:bg-slate-950">
         <Header />
         <Services />
         <Pricing />
